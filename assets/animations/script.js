@@ -159,6 +159,43 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+/*---albums section---*/
+const albums = {
+1:[1,2,3,4,5,6,7,8,9,10],
+2:[11,12,13,14,15,16,17,18,19,20],
+3:[21,22,23,24,25,26,27,28,29,30],
+4:[31,32,33,34,35,36,37,38,39,40]
+};
+
+let currentAlbum=[];
+let index=0;
+
+function openAlbum(num){
+  currentAlbum = albums[num];
+  index=0;
+  showPhoto();
+  document.getElementById("modal").style.display="flex";
+}
+
+function showPhoto(){
+  document.getElementById("modalImg").src =
+  `https://picsum.photos/1000/700?random=${currentAlbum[index]}`;
+}
+
+function nextPhoto(){
+  index = (index+1)%currentAlbum.length;
+  showPhoto();
+}
+
+function prevPhoto(){
+  index = (index-1+currentAlbum.length)%currentAlbum.length;
+  showPhoto();
+}
+
+function closeModal(){
+  document.getElementById("modal").style.display="none";
+}
+
   /* ============================
            booking form
   ============================= */
@@ -201,3 +238,11 @@ setTimeout(()=>{
 },3000);
 
 }
+
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('nav-menu');
+
+hamburger.addEventListener('click',()=>{
+  hamburger.classList.toggle('active');
+  navMenu.classList.toggle('active');
+});

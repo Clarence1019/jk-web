@@ -20,157 +20,94 @@
     <a href="booking.html">Book Now</a>
     <a href="contact.html">Contact</a>
   </nav>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</header>
+<!-- HEADER -->
+<header>
+  <div class="logo">
+    <img src="assets/images/jk logo.png" alt="JK Logo">
+    <span>JK Photography</span>
+  </div>
+
+  <!-- Hamburger Icon -->
+  <div class="hamburger" id="hamburger">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <nav id="nav-menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About us</a>
+    <a href="services.html">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="booking.html">Book Now</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 </header>
 
+<!-- FONT AWESOME -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
 <body>
-<!-- GALLERY -->
-<section id="gallery">
-  <h2 class="section-title fade">Gallery</h2>
-  <div class="gallery-grid">
-    <div class="gallery-item">
-      <img src="assets/images/s1.jpg" alt="JK Photography">
-      <div class="overlay">JK Photography</div>
-    </div>
 
-    <div class="gallery-item">
-      <img src="assets/images/s2.jpg" alt="JK Photography">
-      <div class="overlay">JK Photography</div>
-    </div>
+<div class="gallery-container">
 
-    <div class="gallery-item">
-      <img src="assets/images/s3.jpg" alt="JK Photography">
-      <div class="overlay">JK Photography</div>
-    </div>
+<h2 class="gallery-title">Our Gallery</h2>
 
-    <div class="gallery-item">
-      <img src="assets/images/s4.jpg" alt="JK Photography">
-      <div class="overlay">JK Photography</div>
+<div class="album-grid">
+
+<div class="album" onclick="openAlbum(1)">
+<img src="https://picsum.photos/600/400?random=1">
+<div class="plus"></div>
+<div class="album-name">Wedding Album</div>
+</div>
+
+<div class="album" onclick="openAlbum(2)">
+<img src="https://picsum.photos/600/400?random=2">
+<div class="plus"></div>
+<div class="album-name">Outdoor Shoot</div>
+</div>
+
+<div class="album" onclick="openAlbum(3)">
+<img src="https://picsum.photos/600/400?random=3">
+<div class="plus"></div>
+<div class="album-name">Candid Moments</div>
+</div>
+
+<div class="album" onclick="openAlbum(4)">
+<img src="https://picsum.photos/600/400?random=4">
+<div class="plus"></div>
+<div class="album-name">Couple Album</div>
+</div>
+
+</div>
+</div>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal()">×</span>
+<span class="arrow left" onclick="prevPhoto()">❮</span>
+<img id="modalImg">
+<span class="arrow right" onclick="nextPhoto()">❯</span>
+</div>
+</div>
+
+<!-- LEFT -->
+    <div class="reach-col left">
+      <h3>FOLLOW US</h3>
+
+      <div class="social-icons">
+       <a href="#"><img src="assets/images/instagram.jpg"></a>
+        <span>—</span>
+        <a href="#"><img src="assets/images/facebook.png"></a>
+        <span>—</span>
+        <a href="#"><img src="assets/images/youtube.jpg"></a>
+      </div>
     </div>
-  </div>
 </section>
 
-<style>
+<script src="assets/animations/script.js"></script>
 
-
-/* ---------- GALLERY ---------- */
-.photo-gallery {
-  padding: 60px 30px;
-  text-align: center;
-}
-
-.photo-gallery h2 {
-  font-size: 36px;
-  color: #fff;
-  margin-bottom: 40px;
-  letter-spacing: 2px;
-}
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 25px;
-}
-
-.gallery-item {
-  position: relative;
-  overflow: hidden;
-  border-radius: 16px;
-  cursor: pointer;
-}
-
-.gallery-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: all 0.5s ease;
-}
-
-.gallery-item .overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 28px;
-  font-weight: bold;
-  color: #fff;
-  background: rgba(0, 0, 0, 0.4);
-  opacity: 0;
-  letter-spacing: 2px;
-  transition: all 0.5s ease;
-}
-
-/* Hover Effect */
-.gallery-item:hover img {
-  filter: blur(4px) brightness(70%);
-  transform: scale(1.08);
-}
-
-.gallery-item:hover .overlay {
-  opacity: 1;
-}
-
-/* Mobile Optimization */
-@media (max-width: 600px) {
-  .photo-gallery h2 {
-    font-size: 28px;
-  }
-  .gallery-item .overlay {
-    font-size: 22px;
-  }
-}
-
-.section-title{
-  text-align:center;
-  padding: 100px 0 20px 0;
-  font-size:36px;
-  margin-bottom:30px;
-  position:relative;
-}
-.section-title::after{
-  content:'';
-  width:80px;
-  height:2px;
-  background:#cfa144;
-  display:block;
-  margin:15px auto 0;
-}
-/* ---------- ANIMATIONS ---------- */
-.fade{
-  opacity:0;
-  transform:translateY(40px);
-  transition:1s;
-}
-.fade.show{
-  opacity:1;
-  transform:translateY(0);
-}
-
-@keyframes fadeUp{
-  from{opacity:0; transform:translateY(40px);}
-  to{opacity:1; transform:translateY(0);}
-}
-
-/* ---------- RESPONSIVE ---------- */
-@media(max-width:768px){
-  header{padding:15px 20px;}
-  .hero h1{font-size:34px;}
-  section{padding:80px 25px;}
-}
-</style>
-
-<!-- JS FOR FADE ANIMATION -->
-<script>
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
-    }
-  });
-});
-
-const fadeElements = document.querySelectorAll('.fade');
-fadeElements.forEach(el => observer.observe(el));
-</script>
 </body>
