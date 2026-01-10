@@ -1,0 +1,176 @@
+<head>
+<meta charset="UTF-8">
+<title>Gallery - JK Photography</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="assets/style/style.css">
+</head>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">
+    <img src="assets/images/jk logo.png" alt="JK Logo">
+    <span>JK Photography</span>
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About us</a>
+    <a href="services.html">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="booking.html">Book Now</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</header>
+
+<body>
+<!-- GALLERY -->
+<section id="gallery">
+  <h2 class="section-title fade">Gallery</h2>
+  <div class="gallery-grid">
+    <div class="gallery-item">
+      <img src="assets/images/s1.jpg" alt="JK Photography">
+      <div class="overlay">JK Photography</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="assets/images/s2.jpg" alt="JK Photography">
+      <div class="overlay">JK Photography</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="assets/images/s3.jpg" alt="JK Photography">
+      <div class="overlay">JK Photography</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="assets/images/s4.jpg" alt="JK Photography">
+      <div class="overlay">JK Photography</div>
+    </div>
+  </div>
+</section>
+
+<style>
+
+
+/* ---------- GALLERY ---------- */
+.photo-gallery {
+  padding: 60px 30px;
+  text-align: center;
+}
+
+.photo-gallery h2 {
+  font-size: 36px;
+  color: #fff;
+  margin-bottom: 40px;
+  letter-spacing: 2px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.5s ease;
+}
+
+.gallery-item .overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: bold;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  letter-spacing: 2px;
+  transition: all 0.5s ease;
+}
+
+/* Hover Effect */
+.gallery-item:hover img {
+  filter: blur(4px) brightness(70%);
+  transform: scale(1.08);
+}
+
+.gallery-item:hover .overlay {
+  opacity: 1;
+}
+
+/* Mobile Optimization */
+@media (max-width: 600px) {
+  .photo-gallery h2 {
+    font-size: 28px;
+  }
+  .gallery-item .overlay {
+    font-size: 22px;
+  }
+}
+
+.section-title{
+  text-align:center;
+  padding: 100px 0 20px 0;
+  font-size:36px;
+  margin-bottom:30px;
+  position:relative;
+}
+.section-title::after{
+  content:'';
+  width:80px;
+  height:2px;
+  background:#cfa144;
+  display:block;
+  margin:15px auto 0;
+}
+/* ---------- ANIMATIONS ---------- */
+.fade{
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s;
+}
+.fade.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(40px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:768px){
+  header{padding:15px 20px;}
+  .hero h1{font-size:34px;}
+  section{padding:80px 25px;}
+}
+</style>
+
+<!-- JS FOR FADE ANIMATION -->
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
+  });
+});
+
+const fadeElements = document.querySelectorAll('.fade');
+fadeElements.forEach(el => observer.observe(el));
+</script>
+</body>

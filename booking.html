@@ -1,0 +1,80 @@
+<head>
+<meta charset="UTF-8">
+<title>Booking - JK Photography</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="assets/style/style.css">
+</head>
+<body>
+<!-- HEADER -->
+<header>
+  <div class="logo">
+    <img src="assets/images/jk logo.png" alt="JK Logo">
+    <span>JK Photography</span>
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About us</a>
+    <a href="services.html">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="booking.html">Book Now</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</header>
+</head>
+
+
+<body>
+
+<div class="booking-container">
+
+<h2>Book Your Event</h2>
+<p>Fill your details to confirm booking</p>
+
+<label>Name*</label>
+<span class="error" id="nameError">Fill your name</span>
+<input type="text" id="name" placeholder="Enter your name">
+
+<label>Mobile Number*</label>
+<span class="error" id="mobileError">Enter your mobile number</span>
+<input type="text" id="mobile" placeholder="Enter mobile number">
+
+<label>Event Date*</label>
+<span class="error" id="dateError">Select event date</span>
+<input type="date" id="date">
+
+<label>Event Type</label>
+<input type="text" id="event" placeholder="Wedding / Birthday / Outdoor / etc...">
+
+<label>Message</label>
+<textarea id="message" rows="5" placeholder="Write your message"></textarea>
+
+<button class="btn" onclick="submitBooking()">Submit Booking</button>
+</div>
+<img src="assets/images/camera.png" class="camera-img">
+<p class="information">Information : After your booking, our JK Photography team will personally get in touch with you confirmation and further details.</p>
+<!-- Success Popup -->
+<div class="success-box" id="successBox">
+<div class="success">
+<div class="tick">✔</div>
+<h2>Booking Successful</h2>
+<p>Thank you for choosing JK Photography!</p>
+</div>
+</div>
+ 
+<!-- follow us -->
+    <div class="reach-col left">
+      <h3>FOLLOW US</h3>
+
+      <div class="social-icons">
+       <a href="#"><img src="assets/images/instagram.jpg"></a>
+        <span>—</span>
+        <a href="#"><img src="assets/images/facebook.png"></a>
+        <span>—</span>
+        <a href="#"><img src="assets/images/youtube.jpg"></a>
+      </div>
+    </div>
+</section>
+<script src="assets/animations/script.js"></script>
+</body>
