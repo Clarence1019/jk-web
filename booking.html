@@ -55,33 +55,45 @@
 
 <body>
 <section>
-<div class="booking-container">
+<form class="form" id="form">
+  <h2>Book Your Shoot</h2>
+  <p>Fill your details to confirm booking</p>
+  <div class="field">
+    <label for="name">name*</label>
+    <span class="error" id="nameError">Fill your name</span>
+    <input type="text" name="name" id="name" placeholder="Enter your name">
+  </div>
+  <div class="field">
+    <label for="mobile">mobile*</label>
+    <span class="error" id="mobileError">Enter your mobile number</span>
+    <input type="text" name="mobile" id="mobile" placeholder="Enter mobile number">
+  </div>
+  <div class="field">
+    <label for="date">date*</label>
+    <span class="error" id="dateError">Select your date</span>
+    <input type="date" name="date" id="date">
+  </div>
+  <div class="field">
+    <label for="event">event</label>
+    <input type="text" name="event" id="event" placeholder="Wedding / Birthday / Outdoor / etc...">
+  </div>
+  <div class="field">
+    <label for="message">message</label>
+    <input type="text" name="message" id="message" placeholder="Write your message">
+  </div>
 
-<h2>Book Your Event</h2>
-<p>Fill your details to confirm booking</p>
+  <input class="btn" type="submit" id="button" value="Summit Booking" >
+</form>
 
-<label>Name*</label>
-<span class="error" id="nameError">Fill your name</span>
-<input type="text" id="name" placeholder="Enter your name">
+<script type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
-<label>Mobile Number*</label>
-<span class="error" id="mobileError">Enter your mobile number</span>
-<input type="text" id="mobile" placeholder="Enter mobile number">
-
-<label>Event Date*</label>
-<span class="error" id="dateError">Select event date</span>
-<input type="date" id="date">
-
-<label>Event Type</label>
-<input type="text" id="event" placeholder="Wedding / Birthday / Outdoor / etc...">
-
-<label>Message</label>
-<textarea id="message" rows="5" placeholder="Write your message"></textarea>
-
-<button class="btn" onclick="submitBooking()">Submit Booking</button>
-</div>
+<script type="text/javascript">
+  emailjs.init('aEXueqXpezLzHcZfj')
+</script>
 <img src="assets/images/camera.png" class="camera-img">
 <p class="information">Information : After your booking, our JK Photography team will personally get in touch with you confirmation and further details.</p>
+</div>
 </section>
 <!-- Success Popup -->
 <div class="success-box" id="successBox">
@@ -91,7 +103,7 @@
 <p>Thank you for choosing JK Photography!</p>
 </div>
 </div>
- 
+
 <!-- follow us -->
     <div class="reach-col left">
       <h3>FOLLOW US</h3>
@@ -106,4 +118,30 @@
     </div>
 </section>
 <script src="assets/animations/script.js"></script>
+<script>
+const btn = document.getElementById('button');
+
+document.getElementById('form')
+ .addEventListener('submit', function(event) {
+   event.preventDefault();
+
+   btn.value = 'Sending...';
+
+   const serviceID = 'default_service';
+   const templateID = 'template_8n7xjer';
+
+   emailjs.sendForm(serviceID, templateID, this)
+
+      // ✅ SUCCESS POPUP
+  document.getElementById("successBox").style.display = "flex";
+
+  // optional: form reset
+  this.reset();
+
+  // optional redirect
+  setTimeout(()=>{
+    window.location.href = "index.html";
+  },3000);
+});
+</script>
 </body>

@@ -199,45 +199,41 @@ function closeModal(){
   /* ============================
            booking form
   ============================= */
-function submitBooking(){
 
-let name = document.getElementById("name").value.trim();
-let mobile = document.getElementById("mobile").value.trim();
-let date = document.getElementById("date").value;
+document.getElementById("form").addEventListener("submit", function(e){
+  e.preventDefault(); // 🔥 VERY IMPORTANT
 
-// hide all error first
-document.getElementById("nameError").style.display = "none";
-document.getElementById("mobileError").style.display = "none";
-document.getElementById("dateError").style.display = "none";
+  let name = document.getElementById("name").value.trim();
+  let mobile = document.getElementById("mobile").value.trim();
+  let date = document.getElementById("date").value;
 
-let error = false;
+  // hide all errors first
+  document.getElementById("nameError").style.display = "none";
+  document.getElementById("mobileError").style.display = "none";
+  document.getElementById("dateError").style.display = "none";
 
-if(name === ""){
-  document.getElementById("nameError").style.display = "block";
-  error = true;
-}
+  let error = false;
 
-if(mobile === ""){
-  document.getElementById("mobileError").style.display = "block";
-  error = true;
-}
+  if(name === ""){
+    document.getElementById("nameError").style.display = "block";
+    error = true;
+  }
 
-if(date === ""){
-  document.getElementById("dateError").style.display = "block";
-  error = true;
-}
+  if(mobile === ""){
+    document.getElementById("mobileError").style.display = "block";
+    error = true;
+  }
 
-// stop submit if any error
-if(error) return;
+  if(date === ""){
+    document.getElementById("dateError").style.display = "block";
+    error = true;
+  }
 
-// success popup
-document.getElementById("successBox").style.display = "flex";
+  if(error) return;
 
-setTimeout(()=>{
-  window.location.href="index.html";
-},3000);
 
-}
+});
+
 
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('nav-menu');
