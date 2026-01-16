@@ -242,3 +242,13 @@ hamburger.addEventListener('click',()=>{
   hamburger.classList.toggle('active');
   navMenu.classList.toggle('active');
 });
+
+function playInlineVideo() {
+  document.getElementById("videoThumb").classList.add("hidden");
+  document.getElementById("videoBox").classList.remove("hidden");
+
+  const video = document.getElementById("heroVideo");
+  video.play();
+}
+
+
