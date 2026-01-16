@@ -1259,53 +1259,59 @@ nav a::after{
 nav a:hover::after{width:100%;}
 
 /* ---------- MOBILE RESPONSIVE ---------- */
+/* ---------- HAMBURGER ---------- */
 .hamburger{
-  display:none; /* desktop default */
-  flex-direction: column;
+  display:none;
+  flex-direction:column;
   gap:5px;
   cursor:pointer;
+  z-index:2000;
 }
-.hamburger div{
+.hamburger span{
   width:25px;
   height:3px;
   background:#111;
   transition:0.3s;
 }
 
-/* Mobile nav hidden by default */
+/* ---------- MOBILE MENU ---------- */
 @media(max-width:768px){
+
   nav{
     position:fixed;
     top:0;
     left:-100%;
-    width:70%;
-    height:100%;
+    width:75%;
+    height:100vh;
     background:#F5F5F5;
-    flex-direction:column;
-    padding-top:80px;
-    padding-left:20px;
     display:flex;
-    transition:0.3s;
+    flex-direction:column;
+    padding:90px 25px;
+    transition:0.3s ease;
+    z-index:1500;
   }
+
   nav a{
     margin:15px 0;
     font-size:18px;
   }
-  .hamburger{
-    display:flex;
-  }
+
   nav.active{
     left:0;
   }
 
-  /* Hamburger animation to X */
-  .hamburger.active div:nth-child(1){
+  .hamburger{
+    display:flex;
+  }
+
+  /* Hamburger animation */
+  .hamburger.active span:nth-child(1){
     transform:rotate(45deg) translate(5px,5px);
   }
-  .hamburger.active div:nth-child(2){
+  .hamburger.active span:nth-child(2){
     opacity:0;
   }
-  .hamburger.active div:nth-child(3){
+  .hamburger.active span:nth-child(3){
     transform:rotate(-45deg) translate(6px,-6px);
   }
 }

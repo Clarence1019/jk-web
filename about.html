@@ -22,18 +22,18 @@
   </nav>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </header>
-<!-- HEADER -->
+<!--header-->
 <header>
   <div class="logo">
     <img src="assets/images/jk logo.png" alt="JK Logo">
     <span>JK Photography</span>
   </div>
 
-  <!-- Hamburger Icon -->
+  <!-- HAMBURGER -->
   <div class="hamburger" id="hamburger">
-    <div></div>
-    <div></div>
-    <div></div>
+    <span></span>
+    <span></span>
+    <span></span>
   </div>
 
   <nav id="nav-menu">
@@ -205,4 +205,16 @@
     </div>
 </section>
 <script src="assets/animations/script.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const hamburger = document.getElementById("hamburger");
+  const navMenu = document.getElementById("nav-menu");
+
+  hamburger.addEventListener("click", function () {
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+  });
+});
+</script>
 </body>

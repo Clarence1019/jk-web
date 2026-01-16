@@ -30,11 +30,11 @@
     <span>JK Photography</span>
   </div>
 
-  <!-- Hamburger Icon -->
+  <!-- HAMBURGER -->
   <div class="hamburger" id="hamburger">
-    <div></div>
-    <div></div>
-    <div></div>
+    <span></span>
+    <span></span>
+    <span></span>
   </div>
 
   <nav id="nav-menu">
@@ -132,6 +132,18 @@
           powered by Cyril Productions
 </footer>
 <script src="assets/animations/script.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const hamburger = document.getElementById("hamburger");
+  const navMenu = document.getElementById("nav-menu");
+
+  hamburger.addEventListener("click", function () {
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+  });
+});
+</script>
 </body>
 </html>
 

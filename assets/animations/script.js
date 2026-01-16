@@ -235,14 +235,6 @@ document.getElementById("form").addEventListener("submit", function(e){
 });
 
 
-const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('nav-menu');
-
-hamburger.addEventListener('click',()=>{
-  hamburger.classList.toggle('active');
-  navMenu.classList.toggle('active');
-});
-
 function playInlineVideo() {
   document.getElementById("videoThumb").classList.add("hidden");
   document.getElementById("videoBox").classList.remove("hidden");
